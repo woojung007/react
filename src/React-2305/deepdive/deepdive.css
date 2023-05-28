@@ -1,0 +1,15 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    background-color: lightblue;
+}
+
+.pointer {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 100%;
+
+    background-color: orange;
+}
