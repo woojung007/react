@@ -14,14 +14,17 @@ import ProductPage from './React-2305/basic/useEffect/ProductPage';
 import CounterPage from './React-2305/basic/state/CounterPage';
 import ProfilePage from './React-2305/basic/props/ProfilePage';
 import Form from 'React-2305/deepdive/object/form/Form';
-import Wrapper from 'React-2305/deepdive/component/Wrapper';
+import Wrapper from 'React-2305/deepdive/component/layout/Wrapper';
+import CardPage from 'React-2305/deepdive/component/card/CardPage';
 
 const App = () => {
     return (
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Wrapper />} />
+                    <Route path='/' element={<CardPage />} />
+                    <Route path='/deepdive/compoennt-card' element={<CardPage />} />
+                    <Route path='/deepdive/component' element={<Wrapper />} />
                     <Route path='/deepdive/form' element={<Form />} />
                     <Route path='/deepdive/object/mentors-immer' element={<MentorsImmer />} />
                     <Route path='/deepdive/object/mentors-reducer' element={<MentorsReducer />} />
