@@ -13,13 +13,18 @@ import XY from './React-2305/deepdive/object/position/XY'
 import ProductPage from './React-2305/basic/useEffect/ProductPage'
 import CounterPage from './React-2305/basic/state/CounterPage'
 import ProfilePage from './React-2305/basic/props/ProfilePage'
+import Form from 'React-2305/deepdive/form/Form'
 
 const App = () => {
     return (
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<MentorsImmer />} />
+                    <Route path='/' element={<Form />} />
+                    <Route
+                        path='/dream/deepdive/object/mentors-immer'
+                        element={<MentorsImmer />}
+                    />
                     <Route
                         path='/dream/deepdive/object/mentors-reducer'
                         element={<MentorsReducer />}
