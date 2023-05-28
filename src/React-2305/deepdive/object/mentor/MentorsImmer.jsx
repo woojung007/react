@@ -47,6 +47,11 @@ export default function MentorsImmer() {
             const index = person.mentors.findIndex(
                 (mentor) => mentor.name === mentorName,
             )
+
+            if (index < 0) {
+                return alert('이름을 다시 입력해주세요.')
+            }
+
             person.mentors.splice(index, 1)
         })
     }
