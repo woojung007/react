@@ -17,13 +17,15 @@ import Form from 'React-2305/deepdive/object/form/Form';
 import Wrapper from 'React-2305/deepdive/component/layout/Wrapper';
 import CardPage from 'React-2305/deepdive/component/card/CardPage';
 import Theme from 'React-2305/deepdive/theme/Theme';
+import MentorsButton from 'React-2305/deepdive/refactor/MentorsButton';
 
 const App = () => {
     return (
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<Theme />} />
+                    <Route path='/' element={<MentorsButton />} />
+                    <Route path='/deepdive/theme' element={<Theme />} />
                     <Route path='/deepdive/compoennt-card' element={<CardPage />} />
                     <Route path='/deepdive/component' element={<Wrapper />} />
                     <Route path='/deepdive/form' element={<Form />} />
