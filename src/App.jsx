@@ -16,13 +16,14 @@ import ProfilePage from './React-2305/basic/props/ProfilePage';
 import Form from 'React-2305/deepdive/object/form/Form';
 import Wrapper from 'React-2305/deepdive/component/layout/Wrapper';
 import CardPage from 'React-2305/deepdive/component/card/CardPage';
+import Theme from 'React-2305/deepdive/theme/Theme';
 
 const App = () => {
     return (
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<CardPage />} />
+                    <Route path='/' element={<Theme />} />
                     <Route path='/deepdive/compoennt-card' element={<CardPage />} />
                     <Route path='/deepdive/component' element={<Wrapper />} />
                     <Route path='/deepdive/form' element={<Form />} />

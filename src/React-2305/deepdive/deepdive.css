@@ -28,3 +28,18 @@
     color: #fff;
     font-weight: 600;
 }
+
+.header {
+    background-color: navy;
+    height: 20%;
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+}
+
+.main {
+    background-color: white;
+    font-size: 24px;
+    color: #151515;
+}
