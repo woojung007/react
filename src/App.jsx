@@ -18,13 +18,15 @@ import Wrapper from 'React-2305/deepdive/component/layout/Wrapper';
 import CardPage from 'React-2305/deepdive/component/card/CardPage';
 import Theme from 'React-2305/deepdive/theme/Theme';
 import MentorsButton from 'React-2305/deepdive/memoization/MentorsButton';
+import ProductPageExceptions from 'React-2305/deepdive/exceptions/ProductPageExceptions';
+import ErrorPage from 'React-2305/deepdive/exceptions/ErrorPage';
 
 const App = () => {
     return (
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<ProductPage />} />
+                    <Route path='/' element={<ProductPageExceptions />} />
                     <Route path='/deepdive/memoization' element={<MentorsButton />} />
                     <Route path='/deepdive/theme' element={<Theme />} />
                     <Route path='/deepdive/compoennt-card' element={<CardPage />} />
@@ -42,6 +44,7 @@ const App = () => {
                     <Route path='/react-query/signup' element={<SignUpPage />} />
                     <Route path='/react-query/post' element={<PostPage />} />
                     <Route path='/css' element={<CssPage />} />
+                    <Route path='/error' element={<ErrorPage />} />
                 </Routes>
             </BrowserRouter>
         </div>
