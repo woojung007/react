@@ -1,25 +1,23 @@
-import React from 'react';
+import CardPage from 'React-2305/deepdive/component/card/CardPage';
+import Wrapper from 'React-2305/deepdive/component/layout/Wrapper';
+import ProductPageExceptions from 'React-2305/deepdive/exceptions/ProductPageExceptions';
+import MentorsButton from 'React-2305/deepdive/memoization/MentorsButton';
+import Form from 'React-2305/deepdive/object/form/Form';
+import Theme from 'React-2305/deepdive/theme/Theme';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import ProfilePage from './React-2305/basic/props/ProfilePage';
+import CounterPage from './React-2305/basic/state/CounterPage';
+import ProductPage from './React-2305/basic/useEffect/ProductPage';
+import Mentor from './React-2305/deepdive/object/mentor/Mentor';
+import Mentors from './React-2305/deepdive/object/mentor/Mentors';
+import MentorsImmer from './React-2305/deepdive/object/mentor/MentorsImmer';
+import MentorsReducer from './React-2305/deepdive/object/mentor/MentorsReducer';
+import XY from './React-2305/deepdive/object/position/XY';
+import CssPage from './React-CSS/CssPage';
 import LoginPage from './React-Query/Login/LoginPage';
 import PostPage from './React-Query/Post/PostPage';
 import SignUpPage from './React-Query/SignUp/SignupPage';
-import CssPage from './React-CSS/CssPage';
-import MentorsImmer from './React-2305/deepdive/object/mentor/MentorsImmer';
-import MentorsReducer from './React-2305/deepdive/object/mentor/MentorsReducer';
-import Mentors from './React-2305/deepdive/object/mentor/Mentors';
-import Mentor from './React-2305/deepdive/object/mentor/Mentor';
-import XY from './React-2305/deepdive/object/position/XY';
-import ProductPage from './React-2305/basic/useEffect/ProductPage';
-import CounterPage from './React-2305/basic/state/CounterPage';
-import ProfilePage from './React-2305/basic/props/ProfilePage';
-import Form from 'React-2305/deepdive/object/form/Form';
-import Wrapper from 'React-2305/deepdive/component/layout/Wrapper';
-import CardPage from 'React-2305/deepdive/component/card/CardPage';
-import Theme from 'React-2305/deepdive/theme/Theme';
-import MentorsButton from 'React-2305/deepdive/memoization/MentorsButton';
-import ProductPageExceptions from 'React-2305/deepdive/exceptions/ProductPageExceptions';
-import ErrorPage from 'React-2305/deepdive/exceptions/ErrorPage';
 
 const App = () => {
     return (
@@ -44,7 +42,6 @@ const App = () => {
                     <Route path='/react-query/signup' element={<SignUpPage />} />
                     <Route path='/react-query/post' element={<PostPage />} />
                     <Route path='/css' element={<CssPage />} />
-                    <Route path='/error' element={<ErrorPage />} />
                 </Routes>
             </BrowserRouter>
         </div>
