@@ -20,13 +20,15 @@ import PostPage from './React-Query/Post/PostPage';
 import SignUpPage from './React-Query/SignUp/SignupPage';
 import ClassPage from 'React-2305/deepdive/class/ClassPage';
 import AppCss from 'React-2305/css-libraries/AppCss';
+import TodoPage from 'React-2305/project/todo/TodoPage';
 
 const App = () => {
     return (
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<AppCss />} />
+                    <Route path='/' element={<TodoPage />} />
+                    <Route path='/css-libraries' element={<AppCss />} />
                     <Route path='/deepdive/class' element={<ClassPage />} />
                     <Route path='/deepdive/exceptions' element={<ProductPageExceptions />} />
                     <Route path='/deepdive/memoization' element={<MentorsButton />} />
