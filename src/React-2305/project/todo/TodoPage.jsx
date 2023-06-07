@@ -1,51 +1,38 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Todo.module.css';
-import { BsEmojiSunglasses, BsEmojiSunglassesFill, BsFillTrashFill } from 'react-icons/bs';
-
-const TABS = ['All', 'Active', 'Completed'];
+import TodoHeader from './components/header/TodoHeader';
+import TodoInput from './components/input/TodoInput';
+import TodoList from './components/list/TodoList';
 
 export default function TodoPage() {
-    const [darkMode, setDarkMode] = useState(true);
+    const [todos, setTodos] = useState([]);
+
+    const fetchTodos = async () => {
+        try {
+            // TODO: 로딩 시작
+            const response = await fetch('data/todos.json');
+            const todos = await response.json();
+
+            setTodos(todos.todos);
+        } catch (e) {
+            // TODO: error시 보여줄 페이지
+        } finally {
+            // TODO: 로딩 완료
+        }
+    };
+
+    useEffect(() => {
+        fetchTodos();
+    }, []);
 
     return (
         <div className={styles.background}>
             <div className={styles.container}>
-                <div className={styles.header}>
-                    <div onClick={() => setDarkMode(!darkMode)}>
-                        {darkMode ? <BsEmojiSunglassesFill /> : <BsEmojiSunglasses />}
-                    </div>
+                <TodoHeader />
 
-                    <div className={`${styles.primary} ${styles.tabs}`}>
-                        {TABS.map((tab) => (
-                            <div className={styles.border_bottom} key={tab}>
-                                {tab}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <TodoList todos={todos} />
 
-                <div className={styles.content}>
-                    <div className={styles.todo_item}>
-                        <input type='checkbox' />
-                        <div className={styles.todo}>강의보기</div>
-                        <div>
-                            <BsFillTrashFill />
-                        </div>
-                    </div>
-
-                    <div className={styles.todo_item}>
-                        <input type='checkbox' />
-                        <div className={styles.todo}>강의보기</div>
-                        <div>
-                            <BsFillTrashFill />
-                        </div>
-                    </div>
-                </div>
-
-                <div className={styles.input_wrapper}>
-                    <input type='text' className={styles.todo_input} placeholder='Add Todo' />
-                    <button className={styles.add_btn}>Add</button>
-                </div>
+                <TodoInput todos={todos} setTodos={setTodos} />
             </div>
         </div>
     );
