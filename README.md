@@ -2,7 +2,7 @@
 
 -   https://react.dev/
 -   https://create-react-app.dev/
--   [legacy](https://legacy.reactjs.org/)
+-   [Legacy Docs](https://legacy.reactjs.org/)
 
 <br/>
 
