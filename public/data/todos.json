@@ -3,22 +3,22 @@
         {
             "id": 1,
             "value": "강의보기",
-            "chekced": true
+            "checked": true
         },
         {
             "id": 2,
             "value": "장보기",
-            "chekced": false
+            "checked": false
         },
         {
             "id": 3,
             "value": "테스트",
-            "chekced": false
+            "checked": false
         },
         {
             "id": 4,
             "value": "테스트2",
-            "chekced": false
+            "checked": false
         }
     ]
 }

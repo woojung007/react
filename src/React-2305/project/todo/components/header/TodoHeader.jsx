@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import { useContext, useState } from 'react';
+import { BsEmojiSunglasses, BsEmojiSunglassesFill } from 'react-icons/bs';
 import styles from '../../Todo.module.css';
-import { BsEmojiSunglassesFill, BsEmojiSunglasses } from 'react-icons/bs';
+import { FilterContext } from '../../context/FitlerProvider';
 
 const TABS = ['All', 'Active', 'Completed'];
 
 export default function TodoHeader() {
     const [darkMode, setDarkMode] = useState(true);
+    const { filter, setFilter } = useContext(FilterContext);
+
+    const clickTab = (tab) => {
+        setFilter(tab);
+    };
 
     return (
         <div className={styles.header}>
@@ -15,7 +21,11 @@ export default function TodoHeader() {
 
             <div className={`${styles.primary} ${styles.tabs}`}>
                 {TABS.map((tab) => (
-                    <div className={styles.border_bottom} key={tab}>
+                    <div
+                        onClick={clickTab.bind(this, tab)}
+                        className={`${styles.tab} ${filter === tab ? styles.border_bottom : ''}`}
+                        key={tab}
+                    >
                         {tab}
                     </div>
                 ))}

@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from '../..//Todo.module.css';
+import useTodos from '../../hooks/use-todos';
 
-export default function TodoInput({ setTodos }) {
+export default function TodoInput() {
+    const [setTodos] = useTodos();
+
     // TODO: custom id로 변경
     const [todo, setTodo] = useState({
         id: 123,

@@ -49,8 +49,12 @@
 
             gap: 1.2rem;
 
-            .border_bottom {
-                border-bottom: 1px solid #ff9e44;
+            .tab {
+                cursor: pointer;
+
+                &.border_bottom {
+                    border-bottom: 1px solid #ff9e44;
+                }
             }
         }
     }
