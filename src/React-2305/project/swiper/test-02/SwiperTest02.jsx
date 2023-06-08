@@ -7,6 +7,7 @@ import 'swiper/css/scrollbar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 
+
 export default function SwiperTest02() {
     return (
         <Swiper
