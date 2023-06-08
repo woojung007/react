@@ -21,13 +21,17 @@ import SignUpPage from './React-Query/SignUp/SignupPage';
 import ClassPage from 'React-2305/deepdive/class/ClassPage';
 import AppCss from 'React-2305/css-libraries/AppCss';
 import TodoPage from 'React-2305/project/todo/TodoPage';
+import SwiperTest01 from 'React-2305/project/swiper/test-01/SwiperTest-01';
+import SwiperTest02 from 'React-2305/project/swiper/test-02/SwiperTest-02';
 
 const App = () => {
     return (
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<TodoPage />} />
+                    <Route path='/swiper/02' element={<SwiperTest02 />} />
+                    <Route path='/swiper/01' element={<SwiperTest01 />} />
+                    {/* <Route path='/' element={<TodoPage />} /> */}
                     <Route path='/css-libraries' element={<AppCss />} />
                     <Route path='/deepdive/class' element={<ClassPage />} />
                     <Route path='/deepdive/exceptions' element={<ProductPageExceptions />} />
