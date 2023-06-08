@@ -76,6 +76,10 @@
             .todo {
                 width: 100%;
             }
+
+            .del_icon {
+                cursor: pointer;
+            }
         }
     }
 

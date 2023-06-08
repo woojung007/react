@@ -30,7 +30,7 @@ export default function TodoPage() {
             <div className={styles.container}>
                 <TodoHeader />
 
-                <TodoList todos={todos} />
+                <TodoList todos={todos} setTodos={setTodos} />
 
                 <TodoInput todos={todos} setTodos={setTodos} />
             </div>

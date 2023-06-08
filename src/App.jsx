@@ -29,9 +29,9 @@ const App = () => {
         <div className='App'>
             <BrowserRouter>
                 <Routes>
-                    <Route path='/' element={<SwiperTest02 />} />
+                    <Route path='/' element={<TodoPage />} />
                     <Route path='/swiper/01' element={<SwiperTest01 />} />
-                    {/* <Route path='/' element={<TodoPage />} /> */}
+                    <Route path='/swiper/02' element={<SwiperTest02 />} />
                     <Route path='/css-libraries' element={<AppCss />} />
                     <Route path='/deepdive/class' element={<ClassPage />} />
                     <Route path='/deepdive/exceptions' element={<ProductPageExceptions />} />
