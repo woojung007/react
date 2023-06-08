@@ -32,7 +32,7 @@ export default function TodoPage() {
 
                 <TodoList todos={todos} setTodos={setTodos} />
 
-                <TodoInput todos={todos} setTodos={setTodos} />
+                <TodoInput setTodos={setTodos} />
             </div>
         </div>
     );

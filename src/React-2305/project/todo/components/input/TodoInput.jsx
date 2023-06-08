@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styles from '../..//Todo.module.css';
 
-export default function TodoInput({ todos, setTodos }) {
+export default function TodoInput({ setTodos }) {
+    // TODO: custom id로 변경
     const [todo, setTodo] = useState({
         id: 123,
         value: '',
@@ -15,15 +16,13 @@ export default function TodoInput({ todos, setTodos }) {
         }));
     };
 
-    // const postTodo = async () => {
-    //     const result = await fetch('data/todos.json', {
-    //         method: 'POST',
-    //         body: JSON.stringify(todo),
-    //     });
-    // };
-
     const addTodo = () => {
-        // TODO: add todo
+        setTodos((prev) => [...prev, todo]);
+        setTodo({
+            id: 123,
+            value: '',
+            checked: false,
+        });
     };
 
     return (
