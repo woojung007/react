@@ -5,7 +5,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar } from 'swiper';
+import { Pagination } from 'swiper';
+
 
 export default function SwiperTest02() {
     return (
@@ -14,28 +15,31 @@ export default function SwiperTest02() {
             spaceBetween={50}
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
-            modules={[Navigation, Pagination, Scrollbar]}
-            navigation
+            modules={[Pagination]}
             pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
         >
-            {/* <SwiperSlide className={styles.slides}>
-                {SLIDES.map((slide) => (
-                    <div key={slide.id} className={styles.slide}>
-                        {slide.value}
+            {Array.from({ length: TOTAL_SLIDES }).map((slide) => (
+                <SwiperSlide className={styles.slides}>
+                    <div className={styles.items}>
+                        {ITEMS.map((item) => (
+                            <div key={item.id} className={styles.item}>
+                                {item.value}
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </SwiperSlide> */}
-
-            <SwiperSlide className={styles.slides}>Slide 1</SwiperSlide>
-            <SwiperSlide className={styles.slides}>Slide 2</SwiperSlide>
-            <SwiperSlide className={styles.slides}>Slide 3</SwiperSlide>
-            <SwiperSlide className={styles.slides}>Slide 4</SwiperSlide>
+                </SwiperSlide>
+            ))}
         </Swiper>
     );
 }
 
-const SLIDES = Array.from({ length: 37 }).map((slide, idx) => ({
+const TOTAL_ITEMS = 80;
+
+const ITEMS_PER_SLIDE = 12;
+
+const TOTAL_SLIDES = Math.floor(TOTAL_ITEMS / ITEMS_PER_SLIDE);
+
+const ITEMS = Array.from({ length: ITEMS_PER_SLIDE }).map((slide, idx) => ({
     id: idx,
-    value: `스타벅스 ${idx + 1}`,
+    value: `아이템 ${idx + 1}`,
 }));
