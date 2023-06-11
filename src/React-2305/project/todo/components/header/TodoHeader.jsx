@@ -2,11 +2,12 @@ import { useContext, useState } from 'react';
 import { BsEmojiSunglasses, BsEmojiSunglassesFill } from 'react-icons/bs';
 import styles from '../../Todo.module.css';
 import { FilterContext } from '../../context/FitlerProvider';
+import { DarkModeContext } from '../../context/DarkModeProvider';
 
 const TABS = ['All', 'Active', 'Completed'];
 
 export default function TodoHeader() {
-    const [darkMode, setDarkMode] = useState(true);
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
     const { filter, setFilter } = useContext(FilterContext);
 
     const clickTab = (tab) => {
@@ -14,8 +15,8 @@ export default function TodoHeader() {
     };
 
     return (
-        <div className={styles.header}>
-            <div onClick={() => setDarkMode(!darkMode)}>
+        <div className={`${styles.header} ${darkMode && styles.dark_mode}`}>
+            <div className={`${darkMode && styles.dark_mode}`} onClick={toggleDarkMode}>
                 {darkMode ? <BsEmojiSunglassesFill /> : <BsEmojiSunglasses />}
             </div>
 

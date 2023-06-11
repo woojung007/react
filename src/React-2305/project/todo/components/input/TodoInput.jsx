@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../..//Todo.module.css';
 import useTodos from '../../hooks/use-todos';
+import { DarkModeContext } from '../../context/DarkModeProvider';
 
 export default function TodoInput() {
     const [setTodos] = useTodos();
+
+    const { darkMode } = useContext(DarkModeContext);
 
     // TODO: custom id로 변경
     const [todo, setTodo] = useState({
@@ -29,7 +32,7 @@ export default function TodoInput() {
     };
 
     return (
-        <div className={styles.input_wrapper}>
+        <div className={`${styles.input_wrapper} ${darkMode && styles.dark_mode}`}>
             <input
                 onChange={handleChangeTodo}
                 value={todo.value || ''}
@@ -37,7 +40,7 @@ export default function TodoInput() {
                 className={styles.todo_input}
                 placeholder='Add Todo'
             />
-            <button onClick={addTodo} className={styles.add_btn}>
+            <button onClick={addTodo} className={`${styles.add_btn} ${darkMode && styles.dark_mode}`}>
                 Add
             </button>
         </div>

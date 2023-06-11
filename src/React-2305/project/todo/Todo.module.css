@@ -42,6 +42,15 @@
         -ms-border-radius: 1.4rem 1.4rem 0 0;
         -o-border-radius: 1.4rem 1.4rem 0 0;
 
+        &.dark_mode {
+            background-color: #ebebeb;
+            color: #101a2b;
+        }
+
+        .dark_mode {
+            color: #ff9e44;
+        }
+
         .tabs {
             display: flex;
             justify-content: center;
@@ -83,7 +92,16 @@
 
             .del_icon {
                 cursor: pointer;
+
+                &.dark_mode {
+                    color: #ff9e44;
+                }
             }
+        }
+
+        &.dark_mode {
+            background-color: #fff;
+            color: #101a2b;
         }
     }
 
@@ -104,6 +122,11 @@
         -ms-border-radius: 0 0 1.4rem 1.4rem;
         -o-border-radius: 0 0 1.4rem 1.4rem;
         -webkit-border-radius: 0 0 1.4rem 1.4rem;
+
+        &.dark_mode {
+            background-color: #ebebeb;
+            color: #101a2b;
+        }
 
         .todo_input {
             width: 80%;
@@ -130,6 +153,8 @@
 
             background-color: #ff9e44;
 
+            color: #1b1b1b;
+
             outline: none;
             border: none;
             border-radius: 0 0.4rem 0.4rem 0;
@@ -140,6 +165,10 @@
 
             font-weight: 700;
             font-size: 1.1rem;
+
+            &.dark_mode {
+                color: #fff;
+            }
         }
     }
 }
