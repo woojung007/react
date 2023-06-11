@@ -1,13 +1,13 @@
+import { useContext } from 'react';
 import { BsFillTrashFill } from 'react-icons/bs';
 import styles from '../../Todo.module.css';
+import { ThemeContext } from '../../context/ThemeProvider';
 import useTodos from '../../hooks/use-todos';
-import { useContext } from 'react';
-import { DarkModeContext } from '../../context/DarkModeProvider';
 
 export default function TodoList() {
     const [todos, setTodos] = useTodos();
 
-    const { darkMode } = useContext(DarkModeContext);
+    const { darkMode } = useContext(ThemeContext);
 
     const deleteTodo = (id) => {
         setTodos((prev) => prev.filter((todo) => todo.id !== id));

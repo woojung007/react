@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
 import styles from '../..//Todo.module.css';
+import { ThemeContext } from '../../context/ThemeProvider';
 import useTodos from '../../hooks/use-todos';
-import { DarkModeContext } from '../../context/DarkModeProvider';
 
 export default function TodoInput() {
     const [setTodos] = useTodos();
 
-    const { darkMode } = useContext(DarkModeContext);
+    const { darkMode } = useContext(ThemeContext);
 
     // TODO: custom id로 변경
     const [todo, setTodo] = useState({
