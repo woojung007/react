@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FilterContext } from '../context/FitlerProvider';
+import { FilterContext } from '../context/FilterProvider';
+import { TodosContext } from '../context/TodosProvider';
 
 export default function useTodos() {
-    const [todos, setTodos] = useState([]);
     const { filter } = useContext(FilterContext);
+    const { todos, setTodos } = useContext(TodosContext);
 
     const fetchTodos = async () => {
         try {

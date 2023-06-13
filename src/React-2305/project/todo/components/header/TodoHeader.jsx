@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { BsEmojiSunglasses, BsEmojiSunglassesFill } from 'react-icons/bs';
 import styles from '../../Todo.module.css';
-import { FilterContext } from '../../context/FitlerProvider';
+import { FilterContext } from '../../context/FilterProvider';
 import { ThemeContext } from '../../context/ThemeProvider';
 
 const TABS = ['All', 'Active', 'Completed'];
@@ -24,7 +24,7 @@ export default function TodoHeader() {
                 {TABS.map((tab) => (
                     <div
                         onClick={clickTab.bind(this, tab)}
-                        className={`${styles.tab} ${filter === tab ? styles.border_bottom : ''}`}
+                        className={`${styles.tab} ${filter === tab ? styles.active : ''}`}
                         key={tab}
                     >
                         {tab}

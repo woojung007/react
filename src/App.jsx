@@ -30,28 +30,7 @@ const App = () => {
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<TodoPage />} />
-                    <Route path='/swiper/01' element={<SwiperTest01 />} />
                     <Route path='/swiper/02' element={<SwiperTest02 />} />
-                    <Route path='/css-libraries' element={<AppCss />} />
-                    <Route path='/deepdive/class' element={<ClassPage />} />
-                    <Route path='/deepdive/exceptions' element={<ProductPageExceptions />} />
-                    <Route path='/deepdive/memoization' element={<MentorsButton />} />
-                    <Route path='/deepdive/theme' element={<Theme />} />
-                    <Route path='/deepdive/compoennt-card' element={<CardPage />} />
-                    <Route path='/deepdive/component' element={<Wrapper />} />
-                    <Route path='/deepdive/form' element={<Form />} />
-                    <Route path='/deepdive/object/mentors-immer' element={<MentorsImmer />} />
-                    <Route path='/deepdive/object/mentors-reducer' element={<MentorsReducer />} />
-                    <Route path='/deepdive/object/mentors' element={<Mentors />} />
-                    <Route path='/deepdive/object/mentor' element={<Mentor />} />
-                    <Route path='/deepdive/object/position' element={<XY />} />
-                    <Route path='/basic/useEffect' element={<ProductPage />} />
-                    <Route path='/basic/state' element={<CounterPage />} />
-                    <Route path='/basic/props' element={<ProfilePage />} />
-                    <Route path='/react-query/login' element={<LoginPage />} />
-                    <Route path='/react-query/signup' element={<SignUpPage />} />
-                    <Route path='/react-query/post' element={<PostPage />} />
-                    <Route path='/css' element={<CssPage />} />
                 </Routes>
             </BrowserRouter>
         </div>

@@ -1,12 +1,11 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { BsFillTrashFill } from 'react-icons/bs';
 import styles from '../../Todo.module.css';
 import { ThemeContext } from '../../context/ThemeProvider';
-import useTodos from '../../hooks/use-todos';
+import { TodosContext } from '../../context/TodosProvider';
 
 export default function TodoList() {
-    const [todos, setTodos] = useTodos();
-
+    const { todos, setTodos } = useContext(TodosContext);
     const { darkMode } = useContext(ThemeContext);
 
     const deleteTodo = (id) => {
@@ -15,8 +14,8 @@ export default function TodoList() {
 
     return (
         <div className={`${styles.content} ${darkMode && styles.dark_mode}`}>
-            {todos?.map(({ id, value, checked }) => (
-                <div key={id} className={styles.todo_item}>
+            {todos?.map(({ id, value, checked }, idx) => (
+                <div key={idx} className={styles.todo_item}>
                     <input type='checkbox' defaultChecked={checked} />
                     <div className={styles.todo}>{value}</div>
                     <div

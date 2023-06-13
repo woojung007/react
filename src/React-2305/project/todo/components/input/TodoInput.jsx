@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from '../..//Todo.module.css';
 import { ThemeContext } from '../../context/ThemeProvider';
 import useTodos from '../../hooks/use-todos';
 
 export default function TodoInput() {
-    const [setTodos] = useTodos();
+    const [todos, setTodos] = useTodos();
 
     const { darkMode } = useContext(ThemeContext);
 
@@ -25,10 +25,12 @@ export default function TodoInput() {
     const addTodo = () => {
         setTodos((prev) => [...prev, todo]);
         setTodo({
-            id: 123,
+            id: '123',
             value: '',
             checked: false,
         });
+
+        // localStorage.setItem('todos', )
     };
 
     return (

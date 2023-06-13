@@ -61,8 +61,9 @@
             .tab {
                 cursor: pointer;
 
-                &.border_bottom {
-                    border-bottom: 1px solid #ff9e44;
+                &.active {
+                    border-bottom: 1.4px solid #ff9e44;
+                    font-weight: 700;
                 }
             }
         }
