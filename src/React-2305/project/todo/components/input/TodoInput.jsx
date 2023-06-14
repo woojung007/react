@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import styles from '../..//Todo.module.css';
 import { ThemeContext } from '../../context/ThemeProvider';
-import useTodos from '../../hooks/use-todos';
+import useTodos from '../../hooks/useTodos';
 
 export default function TodoInput() {
     const [todos, setTodos] = useTodos();
