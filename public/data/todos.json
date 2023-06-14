@@ -3,7 +3,7 @@
         {
             "id": 1,
             "value": "강의보기",
-            "checked": true
+            "checked": false
         },
         {
             "id": 2,
@@ -12,12 +12,22 @@
         },
         {
             "id": 3,
-            "value": "테스트",
-            "checked": false
+            "value": "true",
+            "checked": true
         },
         {
             "id": 4,
             "value": "테스트2",
+            "checked": false
+        },
+        {
+            "id": 5,
+            "value": "true",
+            "checked": true
+        },
+        {
+            "id": 6,
+            "value": "테스트24",
             "checked": false
         }
     ]
