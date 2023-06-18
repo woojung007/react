@@ -4,7 +4,7 @@ import { ThemeContext } from '../../context/ThemeProvider';
 import AddTodo from './add/AddTodo';
 import Todo from './item/Todo';
 
-export default function TodoList() {
+export default function TodoList({ filter }) {
     const [todos, setTodos] = useState([]);
     const { darkMode } = useContext(ThemeContext);
 
@@ -23,9 +23,11 @@ export default function TodoList() {
         setTodos(todos.map((todo) => (todo.id === updated.id ? updated : todo)));
     };
 
+    const filteredTodos = getFilteredItems(todos, filter);
+
     return (
         <div className={`${styles.content} ${darkMode && styles.dark_mode}`}>
-            {todos.map((todo) => (
+            {filteredTodos.map((todo) => (
                 <Todo key={todo.id} todo={todo} onDelete={handleDelete} onUpdate={handleUpdate} />
             ))}
 
@@ -33,4 +35,12 @@ export default function TodoList() {
             <AddTodo onAdd={handleAdd} />
         </div>
     );
+}
+
+function getFilteredItems(todos, filter) {
+    if (filter === 'All') {
+        return todos;
+    }
+
+    return todos.filter((todo) => todo.status === filter);
 }

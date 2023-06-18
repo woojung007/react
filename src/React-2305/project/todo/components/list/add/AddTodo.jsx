@@ -19,7 +19,7 @@ export default function AddTodo({ onAdd }) {
         onAdd({
             id: uuidv4(),
             text,
-            checked: false,
+            status: 'Active',
         });
 
         setText('');

@@ -5,30 +5,24 @@ import { ThemeContext } from 'React-2305/project/todo/context/ThemeProvider';
 
 export default function Todo({ todo, onDelete, onUpdate }) {
     const { darkMode } = useContext(ThemeContext);
-    const { text, checked } = todo;
+    const { text, status } = todo;
 
     const handleDelete = () => {
         onDelete(todo);
     };
 
     const handleChange = (e) => {
-        const checked = e.target.checked ? true : false;
+        const status = e.target.checked ? 'Completed' : 'Active';
 
         onUpdate({
             ...todo,
-            checked: checked,
+            status,
         });
     };
 
     return (
         <div className={styles.todo_item}>
-            <input
-                type='checkbox'
-                onChange={handleChange}
-                id={todo.id}
-                value={Boolean(checked)}
-                defaultChecked={Boolean(checked)}
-            />
+            <input type='checkbox' id='checkbox' onChange={handleChange} checked={status === 'Completed'} />
 
             <label htmlFor='checkbox'>{text}</label>
 
