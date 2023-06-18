@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
-import styles from '../..//Todo.module.css';
-import { ThemeContext } from '../../context/ThemeProvider';
+import styles from '../../../Todo.module.css';
+import { ThemeContext } from '../../../context/ThemeProvider';
 import { v4 as uuidv4 } from 'uuid';
 
 export default function AddTodo({ onAdd }) {
