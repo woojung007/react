@@ -9,10 +9,10 @@ export default function TodoList() {
     const { darkMode } = useContext(ThemeContext);
 
     // 삭제
-    const deleteTodo = (id) => {
+    const deleteTodo = (value) => {
         localStorage.setItem(
             'todos',
-            JSON.stringify(JSON.parse(localStorage.getItem('todos')).filter((todo) => todo.id !== id)),
+            JSON.stringify(JSON.parse(localStorage.getItem('todos')).filter((todo) => todo.value !== value)),
         );
     };
 
@@ -52,7 +52,7 @@ export default function TodoList() {
                     />
                     <div className={styles.todo}>{value}</div>
                     <div
-                        onClick={deleteTodo.bind(this, id)}
+                        onClick={deleteTodo.bind(this, value)}
                         className={`${styles.del_icon}  ${darkMode && styles.dark_mode}`}
                     >
                         <BsFillTrashFill />
