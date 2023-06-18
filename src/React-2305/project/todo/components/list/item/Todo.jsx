@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BsFillTrashFill } from 'react-icons/bs';
-import styles from '../../../Todo.module.css';
+import styles from '../../../TodoPage.module.css';
 import { ThemeContext } from 'React-2305/project/todo/context/ThemeProvider';
 
 export default function Todo({ todo, onDelete, onUpdate }) {

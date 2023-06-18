@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
-import styles from '../../Todo.module.css';
 import { ThemeContext } from '../../context/ThemeProvider';
 import AddTodo from './add/AddTodo';
 import Todo from './item/Todo';
+import styles from './TodoList.module.css';
 
 export default function TodoList({ filter }) {
     const [todos, setTodos] = useState([]);
@@ -26,14 +26,16 @@ export default function TodoList({ filter }) {
     const filteredTodos = getFilteredItems(todos, filter);
 
     return (
-        <div className={`${styles.content} ${darkMode && styles.dark_mode}`}>
-            {filteredTodos.map((todo) => (
-                <Todo key={todo.id} todo={todo} onDelete={handleDelete} onUpdate={handleUpdate} />
-            ))}
+        <section className={styles.container}>
+            <ul className={styles.list}>
+                {filteredTodos.map((todo) => (
+                    <Todo key={todo.id} todo={todo} onDelete={handleDelete} onUpdate={handleUpdate} />
+                ))}
 
-            {/* todo가 추가되면 나한테 알려줘~  */}
+                {/* todo가 추가되면 나한테 알려줘~  */}
+            </ul>
             <AddTodo onAdd={handleAdd} />
-        </div>
+        </section>
     );
 }
 

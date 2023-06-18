@@ -1,9 +1,8 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { BsEmojiSunglasses, BsEmojiSunglassesFill } from 'react-icons/bs';
-import styles from '../../Todo.module.css';
-import { FilterContext } from '../../context/FilterProvider';
 import { ThemeContext } from '../../context/ThemeProvider';
 import { filters } from '../../TodoPage';
+import styles from './TodoHeader.module.css';
 
 export default function TodoHeader({ filter, onFilterChange }) {
     const { darkMode, toggleTheme } = useContext(ThemeContext);
@@ -13,19 +12,15 @@ export default function TodoHeader({ filter, onFilterChange }) {
     };
 
     return (
-        <header className={`${styles.header} ${darkMode && styles.dark_mode}`}>
-            <div className={`${darkMode && styles.dark_mode}`} onClick={toggleTheme}>
+        <header className={`${styles.header}`}>
+            <div className={`${styles.dark_mode_icon}`} onClick={toggleTheme}>
                 {darkMode ? <BsEmojiSunglassesFill /> : <BsEmojiSunglasses />}
             </div>
 
-            <div className={`${styles.primary} ${styles.filters}`}>
-                {filters.map((filter, idx) => (
-                    <li
-                        onClick={clickTab.bind(this, filter)}
-                        className={`${styles.filter} ${filter === filter ? styles.active : ''}`}
-                        key={idx}
-                    >
-                        <button>{filter}</button>
+            <div className={`${styles.filters}`}>
+                {filters.map((item, idx) => (
+                    <li onClick={clickTab.bind(this, item)} key={idx}>
+                        <button className={`${styles.filter} ${filter === item && styles.selected}`}>{item}</button>
                     </li>
                 ))}
             </div>

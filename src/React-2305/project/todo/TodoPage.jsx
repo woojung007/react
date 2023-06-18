@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './Todo.module.css';
+import styles from './TodoPage.module.css';
 import TodoHeader from './components/header/TodoHeader';
 import TodoList from './components/list/TodoList';
 import { FilterProvider } from './context/FilterProvider';

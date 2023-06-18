@@ -5,14 +5,14 @@ import './App.css';
 
 const App = () => {
     return (
-        <div className='App'>
+        <>
             <BrowserRouter>
                 <Routes>
                     <Route path='/' element={<TodoPage />} />
                     <Route path='/swiper/02' element={<SwiperTest02 />} />
                 </Routes>
             </BrowserRouter>
-        </div>
+        </>
     );
 };
 
