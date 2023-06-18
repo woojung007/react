@@ -7,7 +7,6 @@ import useTodos from '../../hooks/useTodos';
 export default function TodoList() {
     const [todos, setTodos] = useTodos();
     const { darkMode } = useContext(ThemeContext);
-    const [isChecked, setChecked] = useState(false);
 
     // 삭제
     const deleteTodo = (id) => {
@@ -19,8 +18,7 @@ export default function TodoList() {
 
     // 체크 표시할 때
     const handleChecked = (e) => {
-        console.log(e.target.value);
-
+        console.log(e.target.checked);
         // 전체 todo 리스트를 가져온다.
         const filteredTodos =
             JSON.parse(localStorage.getItem('todos')).filter((todo) => todo.value !== e.target.id) || [];
@@ -30,7 +28,7 @@ export default function TodoList() {
             .filter((todo) => todo.value === e.target.id)
             .map((todo) => ({
                 ...todo,
-                checked: Boolean(e.target.value),
+                checked: Boolean(e.target.checked),
             }));
 
         const newTodos = [...filteredTodos, ...currentTodo];
