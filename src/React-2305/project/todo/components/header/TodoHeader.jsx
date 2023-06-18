@@ -3,7 +3,6 @@ import { BsEmojiSunglasses, BsEmojiSunglassesFill } from 'react-icons/bs';
 import styles from '../../Todo.module.css';
 import { FilterContext } from '../../context/FilterProvider';
 import { ThemeContext } from '../../context/ThemeProvider';
-import useTodos from '../../hooks/useTodos';
 
 const TABS = ['All', 'Active', 'Completed'];
 
@@ -11,11 +10,8 @@ export default function TodoHeader() {
     const { darkMode, toggleTheme } = useContext(ThemeContext);
     const { filter, setFilter } = useContext(FilterContext);
 
-    const [_, setTodos] = useTodos();
-
     const clickTab = (tab) => {
         setFilter(tab);
-        setTodos(JSON.parse(localStorage.getItem('todos')));
     };
 
     return (
