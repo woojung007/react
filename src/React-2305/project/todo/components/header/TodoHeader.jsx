@@ -17,13 +17,13 @@ export default function TodoHeader({ filter, onFilterChange }) {
                 {darkMode ? <BsEmojiSunglassesFill /> : <BsEmojiSunglasses />}
             </div>
 
-            <div className={`${styles.filters}`}>
+            <ul className={`${styles.filters}`}>
                 {filters.map((item, idx) => (
                     <li onClick={clickTab.bind(this, item)} key={idx}>
                         <button className={`${styles.filter} ${filter === item && styles.selected}`}>{item}</button>
                     </li>
                 ))}
-            </div>
+            </ul>
         </header>
     );
 }
