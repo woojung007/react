@@ -5,7 +5,6 @@ import { ThemeContext } from '../../context/ThemeProvider';
 import AddTodo from '../AddTodo/AddTodo';
 
 export default function TodoList() {
-    // const [todos, setTodos] = useTodos();
     const [todos, setTodos] = useState([]);
     const { darkMode } = useContext(ThemeContext);
 

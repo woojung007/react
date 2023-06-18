@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import styles from '../..//Todo.module.css';
 import { ThemeContext } from '../../context/ThemeProvider';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function AddTodo({ onAdd }) {
     const { darkMode } = useContext(ThemeContext);
@@ -16,7 +17,7 @@ export default function AddTodo({ onAdd }) {
         if (text.trim().length === 0) return;
 
         onAdd({
-            id: '고유한 값',
+            id: uuidv4(),
             text,
             checked: false,
         });
