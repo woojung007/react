@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import { useTodoDarkMode } from 'React-2305/project/todo/context/TodoThemeProvider';
 import { BsFillTrashFill } from 'react-icons/bs';
-import { ThemeContext } from 'React-2305/project/todo/context/ThemeProvider';
 import styles from './Todo.module.css';
 
 export default function Todo({ todo, onDelete, onUpdate }) {
-    const { darkMode } = useContext(ThemeContext);
+    const { darkMode } = useTodoDarkMode();
     const { text, status } = todo;
 
     const handleDelete = () => {
@@ -30,7 +29,7 @@ export default function Todo({ todo, onDelete, onUpdate }) {
                 checked={status === 'Completed'}
             />
 
-            <label htmlFor='checkbox' className={styles.text}>
+            <label htmlFor='checkbox' className={`${styles.text}`}>
                 {text}
             </label>
 

@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
-import { ThemeContext } from '../../../context/ThemeProvider';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { useTodoDarkMode } from '../../../context/TodoThemeProvider';
 import styles from './AddTodo.module.css';
 
 export default function AddTodo({ onAdd }) {
-    const { darkMode } = useContext(ThemeContext);
+    const { darkMode } = useTodoDarkMode();
     const [text, setText] = useState('');
 
     const handleChange = (e) => {
@@ -26,7 +26,7 @@ export default function AddTodo({ onAdd }) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <input className={styles.input} onChange={handleChange} value={text} type='text' placeholder='Add Todo' />
             <button className={styles.button}>Add</button>
         </form>

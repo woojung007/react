@@ -1,12 +1,12 @@
-import { useContext, useState } from 'react';
-import { ThemeContext } from '../../context/ThemeProvider';
+import { useState } from 'react';
+import { useTodoDarkMode } from '../../context/TodoThemeProvider';
+import styles from './TodoList.module.css';
 import AddTodo from './add/AddTodo';
 import Todo from './item/Todo';
-import styles from './TodoList.module.css';
 
 export default function TodoList({ filter }) {
     const [todos, setTodos] = useState([]);
-    const { darkMode } = useContext(ThemeContext);
+    const { darkMode } = useTodoDarkMode();
 
     // 추가
     const handleAdd = (todo) => {
