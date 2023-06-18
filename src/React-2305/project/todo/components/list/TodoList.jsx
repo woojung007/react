@@ -18,7 +18,6 @@ export default function TodoList() {
 
     // 체크 표시할 때
     const handleChecked = (e) => {
-        console.log(e.target.checked);
         // 전체 todo 리스트를 가져온다.
         const filteredTodos =
             JSON.parse(localStorage.getItem('todos')).filter((todo) => todo.value !== e.target.id) || [];

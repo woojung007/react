@@ -36,6 +36,14 @@ export default function TodoInput() {
         // setTodos(JSON.parse(localStorage.getItem('todos')));
     };
 
+    const handleKeyUp = (e) => {
+        if (!e.target.value) return;
+        if (e.key === 'Enter') {
+            handleChangeTodo(e);
+            addTodo();
+        }
+    };
+
     return (
         <div className={`${styles.input_wrapper} ${darkMode && styles.dark_mode}`}>
             <input
@@ -44,6 +52,7 @@ export default function TodoInput() {
                 type='text'
                 className={styles.todo_input}
                 placeholder='Add Todo'
+                onKeyUp={handleKeyUp}
             />
             <button onClick={addTodo} className={`${styles.add_btn} ${darkMode && styles.dark_mode}`}>
                 Add
