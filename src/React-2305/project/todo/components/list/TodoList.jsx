@@ -17,30 +17,25 @@ export default function TodoList() {
         );
     };
 
-    // 완료 표시할 때
+    // 체크 표시할 때
     const handleChecked = (e) => {
-        setChecked(!isChecked);
+        console.log(e.target.value);
 
         // 전체 todo 리스트를 가져온다.
-        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+        const filteredTodos =
+            JSON.parse(localStorage.getItem('todos')).filter((todo) => todo.value !== e.target.id) || [];
 
         // 현재 todo의 checked를 변경해준다.
-        const todoList = todos.filter((todo) => todo.id !== Number(e.target.id));
+        const currentTodo = JSON.parse(localStorage.getItem('todos'))
+            .filter((todo) => todo.value === e.target.id)
+            .map((todo) => ({
+                ...todo,
+                checked: Boolean(e.target.value),
+            }));
 
-        const newTodos = todos
-            .filter((todo) => todo.id === Number(e.target.id))
-            .map((item) => {
-                return {
-                    ...item,
-                    checked: isChecked,
-                };
-            });
+        const newTodos = [...filteredTodos, ...currentTodo];
 
-        console.log('todoList ==> ', todoList);
-        console.log('newTodos ==> ', newTodos);
-
-        setTodos([...todoList, ...newTodos].sort((a, b) => a.id - b.id));
-        localStorage.setItem('todos', JSON.stringify([...todoList, ...newTodos].sort((a, b) => a.id - b.id)));
+        localStorage.setItem('todos', JSON.stringify(newTodos));
     };
 
     useEffect(() => {
@@ -53,10 +48,10 @@ export default function TodoList() {
                 <div key={value} className={styles.todo_item}>
                     <input
                         onChange={handleChecked}
-                        id={id}
-                        value={isChecked}
+                        id={value}
+                        value={Boolean(checked)}
                         type='checkbox'
-                        defaultChecked={checked}
+                        defaultChecked={Boolean(checked)}
                     />
                     <div className={styles.todo}>{value}</div>
                     <div
