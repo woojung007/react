@@ -2,7 +2,7 @@ import { BsFillTrashFill } from 'react-icons/bs';
 import styles from './Todo.module.css';
 
 export default function Todo({ todo, onDelete, onUpdate }) {
-    const { text, status } = todo;
+    const { text, status, id } = todo;
 
     const handleDelete = () => {
         onDelete(todo);
@@ -22,12 +22,12 @@ export default function Todo({ todo, onDelete, onUpdate }) {
             <input
                 className={styles.checkbox}
                 type='checkbox'
-                id='checkbox'
+                id={id}
                 onChange={handleChange}
                 checked={status === 'Completed'}
             />
 
-            <label htmlFor='checkbox' className={`${styles.text}`}>
+            <label htmlFor={id} className={styles.text}>
                 {text}
             </label>
 
