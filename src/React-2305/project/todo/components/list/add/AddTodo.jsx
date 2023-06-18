@@ -1,10 +1,8 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useTodoDarkMode } from '../../../context/TodoThemeProvider';
 import styles from './AddTodo.module.css';
 
 export default function AddTodo({ onAdd }) {
-    const { darkMode } = useTodoDarkMode();
     const [text, setText] = useState('');
 
     const handleChange = (e) => {

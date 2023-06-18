@@ -1,9 +1,7 @@
-import { useTodoDarkMode } from 'React-2305/project/todo/context/TodoThemeProvider';
 import { BsFillTrashFill } from 'react-icons/bs';
 import styles from './Todo.module.css';
 
 export default function Todo({ todo, onDelete, onUpdate }) {
-    const { darkMode } = useTodoDarkMode();
     const { text, status } = todo;
 
     const handleDelete = () => {
