@@ -1,19 +1,19 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import styles from '../..//Todo.module.css';
 import { ThemeContext } from '../../context/ThemeProvider';
 import useTodos from '../../hooks/useTodos';
+import _ from 'lodash';
 
 export default function TodoInput() {
     const [todos, setTodos] = useTodos();
-
-    const { darkMode } = useContext(ThemeContext);
-
     // TODO: custom id로 변경
     const [todo, setTodo] = useState({
         id: 123,
         value: '',
         checked: false,
     });
+
+    const { darkMode } = useContext(ThemeContext);
 
     const handleChangeTodo = (e) => {
         setTodo((prev) => ({
@@ -24,13 +24,16 @@ export default function TodoInput() {
 
     const addTodo = () => {
         setTodos((prev) => [...prev, todo]);
+
         setTodo({
             id: '123',
             value: '',
             checked: false,
         });
 
-        // localStorage.setItem('todos', )
+        localStorage.setItem('todos', JSON.stringify([...todos, todo]));
+
+        // setTodos(JSON.parse(localStorage.getItem('todos')));
     };
 
     return (

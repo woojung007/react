@@ -2,20 +2,29 @@ import { useContext, useEffect, useState } from 'react';
 import { BsFillTrashFill } from 'react-icons/bs';
 import styles from '../../Todo.module.css';
 import { ThemeContext } from '../../context/ThemeProvider';
-import { TodosContext } from '../../context/TodosProvider';
+import useTodos from '../../hooks/useTodos';
 
 export default function TodoList() {
-    const { todos, setTodos } = useContext(TodosContext);
+    const [todos, setTodos] = useTodos();
     const { darkMode } = useContext(ThemeContext);
     const [isChecked, setChecked] = useState(false);
 
+    // 삭제
     const deleteTodo = (id) => {
-        setTodos((prev) => prev.filter((todo) => todo.id !== id));
+        localStorage.setItem(
+            'todos',
+            JSON.stringify(JSON.parse(localStorage.getItem('todos')).filter((todo) => todo.id !== id)),
+        );
     };
 
+    // 완료 표시할 때
     const handleChecked = (e) => {
         setChecked(!isChecked);
 
+        // 전체 todo 리스트를 가져온다.
+        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+
+        // 현재 todo의 checked를 변경해준다.
         const todoList = todos.filter((todo) => todo.id !== Number(e.target.id));
 
         const newTodos = todos
@@ -27,13 +36,21 @@ export default function TodoList() {
                 };
             });
 
+        console.log('todoList ==> ', todoList);
+        console.log('newTodos ==> ', newTodos);
+
         setTodos([...todoList, ...newTodos].sort((a, b) => a.id - b.id));
+        localStorage.setItem('todos', JSON.stringify([...todoList, ...newTodos].sort((a, b) => a.id - b.id)));
     };
+
+    useEffect(() => {
+        setTodos(JSON.parse(localStorage.getItem('todos')) || []);
+    }, []);
 
     return (
         <div className={`${styles.content} ${darkMode && styles.dark_mode}`}>
             {todos?.map(({ id, value, checked }) => (
-                <div key={id} className={styles.todo_item}>
+                <div key={value} className={styles.todo_item}>
                     <input
                         onChange={handleChecked}
                         id={id}
