@@ -1,40 +1,28 @@
-import { useContext } from 'react';
-import { BsEmojiSunglasses, BsEmojiSunglassesFill } from 'react-icons/bs';
-import styles from '../../Todo.module.css';
-import { FilterContext } from '../../context/FilterProvider';
-import { ThemeContext } from '../../context/ThemeProvider';
-import useTodos from '../../hooks/useTodos';
+import { BsFillMoonFill, BsSunFill } from 'react-icons/bs';
+import { filters } from '../../TodoPage';
+import styles from './TodoHeader.module.css';
+import { useTodoDarkMode } from '../../context/TodoThemeProvider';
 
-const TABS = ['All', 'Active', 'Completed'];
+export default function TodoHeader({ filter, onFilterChange }) {
+    const { darkMode, toggleTheme } = useTodoDarkMode();
 
-export default function TodoHeader() {
-    const { darkMode, toggleTheme } = useContext(ThemeContext);
-    const { filter, setFilter } = useContext(FilterContext);
-
-    const [_, setTodos] = useTodos();
-
-    const clickTab = (tab) => {
-        setFilter(tab);
-        setTodos(JSON.parse(localStorage.getItem('todos')));
+    const clickTab = (activeFilter) => {
+        onFilterChange(activeFilter);
     };
 
     return (
-        <div className={`${styles.header} ${darkMode && styles.dark_mode}`}>
-            <div className={`${darkMode && styles.dark_mode}`} onClick={toggleTheme}>
-                {darkMode ? <BsEmojiSunglassesFill /> : <BsEmojiSunglasses />}
+        <header className={styles.header}>
+            <div className={styles.theme_icon} onClick={toggleTheme}>
+                {darkMode ? <BsSunFill /> : <BsFillMoonFill />}
             </div>
 
-            <div className={`${styles.primary} ${styles.tabs}`}>
-                {TABS.map((tab) => (
-                    <div
-                        onClick={clickTab.bind(this, tab)}
-                        className={`${styles.tab} ${filter === tab ? styles.active : ''}`}
-                        key={tab}
-                    >
-                        {tab}
-                    </div>
+            <ul className={styles.filters}>
+                {filters.map((item, idx) => (
+                    <li onClick={clickTab.bind(this, item)} key={idx}>
+                        <button className={`${styles.filter} ${filter === item && styles.selected}`}>{item}</button>
+                    </li>
                 ))}
-            </div>
-        </div>
+            </ul>
+        </header>
     );
 }

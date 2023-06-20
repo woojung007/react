@@ -1,65 +1,57 @@
-import { useContext, useEffect, useState } from 'react';
-import { BsFillTrashFill } from 'react-icons/bs';
-import styles from '../../Todo.module.css';
-import { ThemeContext } from '../../context/ThemeProvider';
-import useTodos from '../../hooks/useTodos';
+import { useEffect, useState } from 'react';
+import styles from './TodoList.module.css';
+import AddTodo from './add/AddTodo';
+import Todo from './item/Todo';
 
-export default function TodoList() {
-    const [todos, setTodos] = useTodos();
-    const { darkMode } = useContext(ThemeContext);
+export default function TodoList({ filter }) {
+    const [todos, setTodos] = useState(() => readTodosFromLocalStorage()); // 컴포넌트 마운트 될 때 한번만 호출
 
-    // 삭제
-    const deleteTodo = (id) => {
-        localStorage.setItem(
-            'todos',
-            JSON.stringify(JSON.parse(localStorage.getItem('todos')).filter((todo) => todo.id !== id)),
-        );
+    // 추가
+    const handleAdd = (todo) => {
+        setTodos([...todos, todo]);
     };
 
-    // 체크 표시할 때
-    const handleChecked = (e) => {
-        console.log(e.target.checked);
-        // 전체 todo 리스트를 가져온다.
-        const filteredTodos =
-            JSON.parse(localStorage.getItem('todos')).filter((todo) => todo.value !== e.target.id) || [];
+    // 삭제
+    const handleDelete = (deleted) => {
+        setTodos(todos.filter((todo) => todo.id !== deleted.id));
+    };
 
-        // 현재 todo의 checked를 변경해준다.
-        const currentTodo = JSON.parse(localStorage.getItem('todos'))
-            .filter((todo) => todo.value === e.target.id)
-            .map((todo) => ({
-                ...todo,
-                checked: Boolean(e.target.checked),
-            }));
-
-        const newTodos = [...filteredTodos, ...currentTodo];
-
-        localStorage.setItem('todos', JSON.stringify(newTodos));
+    // 수정
+    const handleUpdate = (updated) => {
+        setTodos(todos.map((todo) => (todo.id === updated.id ? updated : todo)));
     };
 
     useEffect(() => {
-        setTodos(JSON.parse(localStorage.getItem('todos')) || []);
-    }, []);
+        // 어떤 일을? ==> 로컬스토리지에 투두를 저장한다.
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]); // 언제? ==> 투두가 변경될 때
+
+    const filteredTodos = getFilteredItems(todos, filter);
 
     return (
-        <div className={`${styles.content} ${darkMode && styles.dark_mode}`}>
-            {todos?.map(({ id, value, checked }) => (
-                <div key={value} className={styles.todo_item}>
-                    <input
-                        onChange={handleChecked}
-                        id={value}
-                        value={Boolean(checked)}
-                        type='checkbox'
-                        defaultChecked={Boolean(checked)}
-                    />
-                    <div className={styles.todo}>{value}</div>
-                    <div
-                        onClick={deleteTodo.bind(this, id)}
-                        className={`${styles.del_icon}  ${darkMode && styles.dark_mode}`}
-                    >
-                        <BsFillTrashFill />
-                    </div>
-                </div>
-            ))}
-        </div>
+        <section className={styles.container}>
+            <ul className={styles.list}>
+                {filteredTodos.map((todo) => (
+                    <Todo key={todo.id} todo={todo} onDelete={handleDelete} onUpdate={handleUpdate} />
+                ))}
+            </ul>
+
+            {/* todo가 추가되면 나한테 알려줘~  */}
+            <AddTodo onAdd={handleAdd} />
+        </section>
     );
+}
+
+function readTodosFromLocalStorage() {
+    console.log('😇');
+    const todos = localStorage.getItem('todos');
+    return todos ? JSON.parse(todos) : [];
+}
+
+function getFilteredItems(todos, filter) {
+    if (filter === 'All') {
+        return todos;
+    }
+
+    return todos.filter((todo) => todo.status === filter);
 }
