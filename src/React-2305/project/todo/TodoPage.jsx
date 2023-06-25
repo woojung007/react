@@ -2,6 +2,7 @@ import { useState } from 'react';
 import TodoHeader from './components/header/TodoHeader';
 import TodoList from './components/list/TodoList';
 import { TodoThemeProvider } from './context/TodoThemeProvider';
+import styles from './TodoPage.module.css';
 
 export const filters = ['All', 'Active', 'Completed'];
 
@@ -10,8 +11,12 @@ export default function TodoPage() {
 
     return (
         <TodoThemeProvider>
-            <TodoHeader filter={filter} onFilterChange={setFilter} />
-            <TodoList filter={filter} />
+            <div id={styles.todo_root}>
+                <div className={styles.todo_container}>
+                    <TodoHeader filter={filter} onFilterChange={setFilter} />
+                    <TodoList filter={filter} />
+                </div>
+            </div>
         </TodoThemeProvider>
     );
 }
