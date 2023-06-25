@@ -1,4 +1,4 @@
-import TodoPage from 'React-2305/project/todo/TodoPage';
+import RouterPage from 'React-2305/project/router/RouterPage';
 import './App.css';
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
                 </Routes>
             </BrowserRouter> */}
 
-            <TodoPage />
+            <RouterPage />
         </>
     );
 };
