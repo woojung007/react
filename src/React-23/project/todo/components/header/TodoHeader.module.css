@@ -1,0 +1,62 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.5rem 1rem;
+
+    border-bottom: 1px solid var(--color-grey);
+    background-color: var(--color-bg-dark);
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter {
+    color: var(--color-accent);
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.filter:hover,
+.filter.selected {
+    opacity: 1;
+}
+
+.filter.selected::after {
+    content: '';
+    display: block;
+    border: 1px solid var(--color-accent);
+}
+
+.theme_icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--color-text);
+
+    transition: all 150ms ease-out;
+    -webkit-transition: all 150ms ease-out;
+    -moz-transition: all 150ms ease-out;
+    -ms-transition: all 150ms ease-out;
+    -o-transition: all 150ms ease-out;
+}
+
+.theme_icon:hover {
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+
+    color: var(--color-accent);
+}

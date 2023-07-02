@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# not allow to upload
+/src/React-23/basic
+/src/React-23/css-libraries
+/src/React-23/deepdive
+/src/React-23/libraries
