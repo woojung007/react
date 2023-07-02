@@ -17,7 +17,7 @@
 
 -   [Todo App](https://deploy-preview-4--rainbow-crepe-15d416.netlify.app/)
 
-https://github.com/woojung007/react/assets/99471927/42df23fe-e4e2-4710-a475-e123a265dc58
+https://github.com/woojung007/react/assets/99471927/4641add6-4ef0-4ac8-8bb6-b755abff2403
 
 ### 기능
 
