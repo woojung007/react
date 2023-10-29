@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Class React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 목차
 
-## Available Scripts
+1. [Project](#project-todo)
+2. [React](#1-react)
+3. [React Hooks](#2-react-hooks-사용하기)
+4. [React-Query](#3-react-query-사용하기)
 
-In the project directory, you can run:
+<br/>
 
-### `yarn start`
+## Project Todo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+https://github.com/woojung007/react/assets/99471927/16c63dfa-c54c-47e5-a83e-284796c44182
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 기능
 
-### `yarn test`
+-   전체 아이템 보여주기
+-   아이템 삭제
+-   아이템 추가
+-   아이템 필터링
+-   테마 (라이트모드/다크모드)
+-   로컬 스토리지에 저장
+-   UI (Post CSS)
+-   [리액트 아이콘](https://react-icons.github.io/react-icons)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
 
-### `yarn build`
+## 1. React
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   useState
+-   useEffect
+-   객체와 상태관리
+-   useReducer
+-   Immer, useImmer
+-   Form
+-   useContext
+-   성능개선(useMemo, useCallback, Memo)
+-   로딩, 에러 상태
+-   Custom Hook
+-   Class Component
+-   CSS 라이브러리들(Post CSS, Tailwind CSS, Styled-component)
+-   배포하기(Netlify)
+-   리액트 라우터
+-   리액트 쿼리
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `yarn eject`
+## 2. React Hooks 사용하기
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   [View Code](https://github.com/woojung007/react/tree/master/src/React-Hooks)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   Blog
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    -   [01 useState](https://velog.io/@eeeve/React-Hooks-useState)
+    -   [02 useEffect](https://velog.io/@eeeve/React-Hooks-useEffect)
+    -   [03 useCallback](https://velog.io/@eeeve/React-Hooks-useCallback)
+    -   [04 useRef](https://velog.io/@eeeve/React-Hooks-useRef)
+    -   [05 useContext + Context API](https://velog.io/@eeeve/React-Hooks-useContext-Context-API)
+    -   [06 useMemo](https://velog.io/@eeeve/React-Hooks-useMemo)
+    -   [07 useReducer](https://velog.io/@eeeve/React-Hooks-useReducer)
+    -   [08 React.memo](https://velog.io/@eeeve/React.memo%EB%A1%9C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0-useMemo-useCallback)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 3. React-Query 사용하기
 
-## Learn More
+-   [View Code](https://github.com/woojung007/react/tree/master/src/React-Query)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-   Blog
+    -   [[React-Query] 리액트 쿼리 사용하기(useQuery, useMutation)](https://velog.io/@eeeve/React-Query)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br/>
